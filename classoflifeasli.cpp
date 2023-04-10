@@ -77,6 +77,7 @@ public:
         DNA = RNA + '\n' + x;
         return DNA;
     }
+    
 };
 int main()
 {
