@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include <algorithm>
 using namespace std;
 class Genome
@@ -121,67 +122,178 @@ public:
         return DNA;
     }
 };
+
+class cell : public Genome
+{
+    vector<string> chromosome;
+
+public:
+    void makechromosome(string DNA)
+    {
+        chromosome.push_back(DNA);
+    }
+    void printchromosome()
+    {
+        for (int i = 0; i < chromosome.size(); i++)
+        {
+            cout << chromosome[i] << "\n\n";
+        }
+    }
+    string mokammelgiri(string u)
+    {
+        string rev;
+        rev = "";
+        for (int i = 0; i < u.length(); i++)
+        {
+            if (u[i] == 'A')
+            {
+                rev = rev + 'T';
+            }
+            else if (rev[i] == 'T')
+            {
+                rev = rev + 'A';
+            }
+            else if (u[i] == 'C')
+            {
+                rev = rev + 'G';
+            }
+            else
+            {
+                rev = rev + 'C';
+            }
+        }
+        string dnaM = u + '\n' + rev;
+        return dnaM;
+    }
+    void check(string k, string u)
+    {
+        int count1 = 0;
+        int count2 = 0;
+        int count3 = 0;
+        bool answer = true;
+        for (int i = 1; i <= k.size(); i++)
+        {
+            if (k[i] != u[i])
+            {
+                count1 = count1 + 1;
+            }
+        }
+        if (5 < count1)
+        {
+            answer = false;
+        }
+        for (int i = 1; i <= k.size() ; i++)
+        {
+            if ((k[i] == 'A' && u[i] == 'T') || (k[i] == 'T' && u[i] == 'A'))
+            {
+                count2 = count2 + 1;
+            }
+            if ((k[i] == 'G' && u[i] == 'C') || (k[i] == 'C' && u[i] == 'G'))
+            {
+                count3 = count3 + 1;
+            }
+        }
+        if ((count3 * 3) < count2)
+        {
+            answer = false;
+        }
+
+        if (answer == false)
+        {
+            cout << "cellule died :(";
+            delete this;
+        }
+    }
+};
+
 int main()
 {
-    string voroodi;
-    char a;
-    char b;
-    string S1;
-    string S2;
-    string S3;
-    string u;
-    string l;
-    int c;
-    cout << "Enter your RNA :"
-         << "\n";
-    cin >> voroodi;
-    Genome Gen;
-    Gen.setRNA(voroodi);
-    cout << "\n"
-         << "Your RNA is :"
-         << "\n"
-         << voroodi << "\n";
-    cout << "Your DNA is";
-    cout << "\n"
-         << Gen.sakhtDNA()
-         << "\n";
+    int dastoor;
+    cout << "";
+    cin >> dastoor;
+    if (dastoor == 1)
+    {
+        string voroodi;
+        char a;
+        char b;
+        string S1;
+        string S2;
+        string S3;
+        string u;
+        string l;
+        int c;
+        cout << "Enter your RNA :"
+             << "\n";
+        cin >> voroodi;
+        Genome Gen;
+        Gen.setRNA(voroodi);
+        cout << "\n"
+             << "Your RNA is :"
+             << "\n"
+             << voroodi << "\n";
+        cout << "Your DNA is";
+        cout << "\n"
+             << Gen.sakhtDNA()
+             << "\n";
 
-    cout << "Enter two characters and one number for small mutation "
-         << ">>\n";
-    cin >> a >> b >> c;
-    cout << "\n"
-         << "Your RNA after a small mutation is:";
-    cout << "\n"
-         << Gen.taghirRNA(a, b, c);
-    cout << "\n"
-         << "Your DNA after a small mutation is:";
-    cout << "\n"
-         << Gen.taghirDNA()
-         << "\n";
-    cout << "Enter two strings for a big  mutation :"
-         << "\n";
-    cin >> S1 >> S2;
-    cout << "\n"
-         << "your RNA after a big mutation is :";
-    u = Gen.jaheshbozorg(S1, S2);
-    cout << "\n"
-         << u
-         << "\n"
-         << "your DNA after a big mutation is :";
-    cout << "\n"
-         << Gen.sakhtDNAjaheshbozorg(u)
-         << "\n";
-    cout << "Enter one string for a reverse mutation :"
-         << "\n";
-    cin >> S3;
-    cout << "\n"
-         << "Your RNA after a reverse mutation is :";
-    cout << "\n";
-    l = Gen.JaheshmakoosRNA(S3);
-    cout << l;
-    cout << "\n"
-         << "Your DNA after a reverse mutation is :";
-    cout << "\n"
-         << Gen.sakhtDNAjaheshbozorg(l);
+        cout << "Enter two characters and one number for small mutation "
+             << ">>\n";
+        cin >> a >> b >> c;
+        cout << "\n"
+             << "Your RNA after a small mutation is:";
+        cout << "\n"
+             << Gen.taghirRNA(a, b, c);
+        cout << "\n"
+             << "Your DNA after a small mutation is:";
+        cout << "\n"
+             << Gen.taghirDNA()
+             << "\n";
+        cout << "Enter two strings for a big  mutation :"
+             << "\n";
+        cin >> S1 >> S2;
+        cout << "\n"
+             << "your RNA after a big mutation is :";
+        u = Gen.jaheshbozorg(S1, S2);
+        cout << "\n"
+             << u
+             << "\n"
+             << "your DNA after a big mutation is :";
+        cout << "\n"
+             << Gen.sakhtDNAjaheshbozorg(u)
+             << "\n";
+        cout << "Enter one string for a reverse mutation :"
+             << "\n";
+        cin >> S3;
+        cout << "\n"
+             << "Your RNA after a reverse mutation is :";
+        cout << "\n";
+        l = Gen.JaheshmakoosRNA(S3);
+        cout << l;
+        cout << "\n"
+             << "Your DNA after a reverse mutation is :";
+        cout << "\n"
+             << Gen.sakhtDNAjaheshbozorg(l);
+    }
+
+    else if (dastoor == 2)
+    {
+        int tedad;
+        cin >> tedad;
+        cell cellule;
+        string d;
+        string k;
+        for (int i = 0; i < tedad; i++)
+        {
+            cout << "Enter your RNA: ";
+            cin >> d;
+            cout << "\n Enter your second part: ";
+            cin >> k;
+            cellule.makechromosome(d + "\n" + k);
+        }
+
+        cout << "Your chromosome is:\n";
+        cellule.printchromosome();
+    }
+
     return 0;
 }
