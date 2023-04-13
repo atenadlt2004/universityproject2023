@@ -149,7 +149,7 @@ public:
             {
                 rev = rev + 'T';
             }
-            else if (rev[i] == 'T')
+            else if (u[i] == 'T')
             {
                 rev = rev + 'A';
             }
@@ -182,7 +182,7 @@ public:
         {
             answer = false;
         }
-        for (int i = 1; i <= k.size() ; i++)
+        for (int i = 1; i <= k.size(); i++)
         {
             if ((k[i] == 'A' && u[i] == 'T') || (k[i] == 'T' && u[i] == 'A'))
             {
@@ -204,8 +204,41 @@ public:
             delete this;
         }
     }
-};
+    string jaheshbozorgcell(string v1, int n, string v2, int m)
+    {
+        string mokammelv1 = "";
+        string mokammelv2 = "";
+        chromosome[n].replace(chromosome[n].find(v1), v1.size(), v2);
+        chromosome[m].replace(chromosome[m].find(v2), v2.size(), v1);
+        mokammelv1 = mokammelgiri(v1);
+        mokammelv2 = mokammelgiri(v2);
+        chromosome[n].replace(chromosome[n].find(mokammelv1), mokammelv1.size(), mokammelv2);
+        chromosome[m].replace(chromosome[m].find(mokammelv2), mokammelv2.size(), mokammelv1);
+        return chromosome;
+    }
 
+    string jaheshmakooscell(string y1, int y2)
+    {
+        string y3;
+        string mokammely1;
+        string mokammely3;
+        y3 = makooascell(y1);
+        chromosome[y2].replace(chromosome[y2].find(y1), y1.size(), y3);
+        mokammely3 = mokammelgiri(y3);
+        mokammely1 = mokammelgiri(y1);
+        chromosome[y2].replace(chromosome[y2].find(mokammely1), mokammely1.size(), mokammely3);
+        return chromosome;
+    }
+    string makooascell(string y4)
+    {
+        string y5;
+        for (int r = (y4.size() - 1); 0 <= r; r--)
+        {
+            y5 = y5 + y4[r];
+        }
+        return y5;
+    }
+};
 int main()
 {
     int dastoor;
@@ -282,6 +315,16 @@ int main()
         cell cellule;
         string d;
         string k;
+        string v1;
+        string v2;
+        int n;
+        int m;
+        char k1;
+        char k2;
+        int p1;
+        int p2;
+        string y1;
+        int y2;
         for (int i = 0; i < tedad; i++)
         {
             cout << "Enter your RNA: ";
@@ -290,10 +333,23 @@ int main()
             cin >> k;
             cellule.makechromosome(d + "\n" + k);
         }
-
         cout << "Your chromosome is:\n";
         cellule.printchromosome();
+        cout << "Enter two strings and two numbers like this (string  number   string  number ) for a big mutation";
+        cout << "\n";
+        cin >> v1 >> n >> v2 >> m;
+        cout << "\n"
+             << "Your cellule after a big mutation is:";
+        cout << "\n"
+             << cellule.jaheshbozorgcell(v1, n, v2, m);
+        cout << "\n"
+             << "Enter a string and a number for reverse mutation:"
+             << "\n";
+        cin >> y1 >> y2;
+        cout << "\n"
+             << "Your cellule after a reverse mutation:";
+        cout << "\n"
+             << cellule.JaheshmakoosRNA(y1, y2);
     }
-
     return 0;
 }
