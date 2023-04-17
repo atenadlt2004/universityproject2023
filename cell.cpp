@@ -9,11 +9,11 @@ public:
           string RNA;
           string DNA;
           string x;
-          void setRNA(string voroodiRNA)//Receiving the input and storing it in the RNA variable
+          void setRNA(string voroodiRNA) // Receiving the input and storing it in the RNA variable
           {
                     RNA = voroodiRNA;
           }
-          string sakhtDNA()//Making a complement from RNA and then making DNA from RNA and its complenet 
+          string sakhtDNA() // Making a complement from RNA and then making DNA from RNA and its complenet
           {
                     for (int i = 0; i < RNA.length(); i++)
                     {
@@ -37,7 +37,7 @@ public:
                     DNA = RNA + '\n' + x;
                     return DNA;
           }
-          string taghirRNA(char j, char c, int z)//A function for small mutation in RNA
+          string taghirRNA(char j, char c, int z) // A function for small mutation in RNA
           {
                     for (int i = 0;; i++)
                     {
@@ -54,7 +54,7 @@ public:
                     taghirDNA();
                     return RNA;
           }
-          string taghirDNA()//A function for small mutation in DNA
+          string taghirDNA() // A function for small mutation in DNA
           {
                     x = "";
                     for (int i = 0; i < RNA.length(); i++)
@@ -79,12 +79,12 @@ public:
                     DNA = RNA + '\n' + x;
                     return DNA;
           }
-          string jaheshbozorg(string S1, string S2)//A function for big mutation in RNA
+          string jaheshbozorg(string S1, string S2) // A function for big mutation in RNA
           {
                     RNA.replace(RNA.find(S1), S1.size(), S2);
                     return RNA;
           }
-          string JaheshmakoosRNA(string S3)//A function for reverse mutation in RNA
+          string JaheshmakoosRNA(string S3) // A function for reverse mutation in RNA
           {
                     string makoosS3 = "";
                     for (int i = (S3.size() - 1); 0 <= i; i--)
@@ -95,7 +95,7 @@ public:
 
                     return RNA;
           }
-          string sakhtDNAjaheshbozorg(string u)//A fuction for big mutation in DNA
+          string sakhtDNAjaheshbozorg(string u) // A fuction for big mutation in DNA
           {
                     x = "";
                     for (int i = 0; i < u.length(); i++)
@@ -123,23 +123,23 @@ public:
           }
 };
 
-class cell : public Genome// The second class: Cell
+class cell : public Genome // The second class: Cell
 {
           vector<string> chromosome;
 
 public:
-          void makechromosome(string DNA)//make a chromosome base on RNA
+          void makechromosome(string DNA) // make a chromosome base on RNA
           {
                     chromosome.push_back(DNA);
           }
-          void printchromosome()//print chromosome
+          void printchromosome() // print chromosome
           {
                     for (int i = 0; i < chromosome.size(); i++)
                     {
                               cout << chromosome[i] << "\n\n";
                     }
           }
-          string mokammelgiri(string u)//make supplement
+          string mokammelgiri(string u) // make supplement
           {
                     string rev;
                     rev = "";
@@ -165,7 +165,7 @@ public:
                     string dnaM = u + '\n' + rev;
                     return dnaM;
           }
-          void check(string k, string u)//A function for checking 
+          void check(string k, string u) // A function for checking
           {
                     int count1 = 0;
                     int count2 = 0;
@@ -204,7 +204,7 @@ public:
                               delete this;
                     }
           }
-          string mokammelsaz(string u)//make supplement for a string
+          string mokammelsaz(string u) // make supplement for a string
           {
                     string rev;
                     rev = "";
@@ -229,7 +229,7 @@ public:
                     }
                     return rev;
           }
-          void jaheshbozorgcell(string v1, int n, string v2, int m)//the big mutation function
+          void jaheshbozorgcell(string v1, int n, string v2, int m) // the big mutation function
           {
                     string mokammelv1 = "";
                     string mokammelv2 = "";
@@ -241,7 +241,7 @@ public:
                     chromosome[m].replace(chromosome[m].find(mokammelv2), mokammelv2.size(), mokammelv1);
           }
 
-          void jaheshmakooscell(string y1, int y2)//reverse mutation function
+          void jaheshmakooscell(string y1, int y2) // reverse mutation function
           {
                     string y3;
                     string mokammely1;
@@ -252,7 +252,7 @@ public:
                     mokammely1 = mokammelgiri(y1);
                     chromosome[y2].replace(chromosome[y2].find(mokammely1), mokammely1.size(), mokammely3);
           }
-          string makooascell(string y4)//make reverse for a string
+          string makooascell(string y4) // make reverse for a string
           {
                     string y5;
                     for (int r = (y4.size() - 1); 0 <= r; r--)
@@ -261,7 +261,7 @@ public:
                     }
                     return y5;
           }
-          void jaheshkoochikcell(char k1, char k2, int p1, int p2)//small mutation function
+          void jaheshkoochikcell(char k1, char k2, int p1, int p2) // small mutation function
           {
                     int pp = p1;
                     string z = chromosome[p2];
@@ -323,7 +323,7 @@ public:
                     chromosome[p1].replace(0, z.length(), z);
           }
 
-          void JaheshmakoosRNAcell(string y1, int y2)//reverse mutation function
+          void JaheshmakoosRNAcell(string y1, int y2) // reverse mutation function
           {
                     string rev = y1;
                     string SS = chromosome[y2];
@@ -336,7 +336,7 @@ public:
                     S3.replace(S3.find(y1), rev.size(), rev);
                     chromosome[y2] = mokammelgiri(S3);
           }
-          bool check_palindrome(string str, int start, int end)//check  all palindromestring in all string 
+          bool check_palindrome(string str, int start, int end) // check  all palindromestring in all string
           {
                     bool ans = true;
                     while (start < end)
@@ -349,7 +349,7 @@ public:
                     return ans;
           }
 
-          void palindromeyab()//A fuction for finding all palindrome in Cellule
+          void palindromeyab() // A fuction for finding all palindrome in Cellule
           {
                     for (int k = 0; k < chromosome.size(); k++)
                     {
