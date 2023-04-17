@@ -9,11 +9,11 @@ public:
           string RNA;
           string DNA;
           string x;
-          void setRNA(string voroodiRNA)
+          void setRNA(string voroodiRNA)//Receiving the input and storing it in the RNA variable
           {
                     RNA = voroodiRNA;
           }
-          string sakhtDNA()
+          string sakhtDNA()//Making a complement from RNA and then making DNA from RNA and its complenet 
           {
                     for (int i = 0; i < RNA.length(); i++)
                     {
@@ -37,7 +37,7 @@ public:
                     DNA = RNA + '\n' + x;
                     return DNA;
           }
-          string taghirRNA(char j, char c, int z)
+          string taghirRNA(char j, char c, int z)//A function for small mutation in RNA
           {
                     for (int i = 0;; i++)
                     {
@@ -54,7 +54,7 @@ public:
                     taghirDNA();
                     return RNA;
           }
-          string taghirDNA()
+          string taghirDNA()//A function for small mutation in DNA
           {
                     x = "";
                     for (int i = 0; i < RNA.length(); i++)
@@ -79,12 +79,12 @@ public:
                     DNA = RNA + '\n' + x;
                     return DNA;
           }
-          string jaheshbozorg(string S1, string S2)
+          string jaheshbozorg(string S1, string S2)//A function for big mutation in RNA
           {
                     RNA.replace(RNA.find(S1), S1.size(), S2);
                     return RNA;
           }
-          string JaheshmakoosRNA(string S3)
+          string JaheshmakoosRNA(string S3)//A function for reverse mutation in RNA
           {
                     string makoosS3 = "";
                     for (int i = (S3.size() - 1); 0 <= i; i--)
@@ -95,7 +95,7 @@ public:
 
                     return RNA;
           }
-          string sakhtDNAjaheshbozorg(string u)
+          string sakhtDNAjaheshbozorg(string u)//A fuction for big mutation in DNA
           {
                     x = "";
                     for (int i = 0; i < u.length(); i++)
@@ -123,7 +123,7 @@ public:
           }
 };
 
-class cell : public Genome
+class cell : public Genome// The second class: Cell
 {
           vector<string> chromosome;
 
@@ -165,7 +165,7 @@ public:
                     string dnaM = u + '\n' + rev;
                     return dnaM;
           }
-          void check(string k, string u)
+          void check(string k, string u)//A function for checking 
           {
                     int count1 = 0;
                     int count2 = 0;
