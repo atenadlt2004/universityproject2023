@@ -128,18 +128,18 @@ class cell : public Genome// The second class: Cell
           vector<string> chromosome;
 
 public:
-          void makechromosome(string DNA)
+          void makechromosome(string DNA)//make a chromosome base on RNA
           {
                     chromosome.push_back(DNA);
           }
-          void printchromosome()
+          void printchromosome()//print chromosome
           {
                     for (int i = 0; i < chromosome.size(); i++)
                     {
                               cout << chromosome[i] << "\n\n";
                     }
           }
-          string mokammelgiri(string u)
+          string mokammelgiri(string u)//make supplement
           {
                     string rev;
                     rev = "";
@@ -204,7 +204,7 @@ public:
                               delete this;
                     }
           }
-          string mokammelsaz(string u)
+          string mokammelsaz(string u)//make supplement for a string
           {
                     string rev;
                     rev = "";
@@ -229,7 +229,7 @@ public:
                     }
                     return rev;
           }
-          void jaheshbozorgcell(string v1, int n, string v2, int m)
+          void jaheshbozorgcell(string v1, int n, string v2, int m)//the big mutation function
           {
                     string mokammelv1 = "";
                     string mokammelv2 = "";
@@ -241,7 +241,7 @@ public:
                     chromosome[m].replace(chromosome[m].find(mokammelv2), mokammelv2.size(), mokammelv1);
           }
 
-          void jaheshmakooscell(string y1, int y2)
+          void jaheshmakooscell(string y1, int y2)//reverse mutation function
           {
                     string y3;
                     string mokammely1;
@@ -252,7 +252,7 @@ public:
                     mokammely1 = mokammelgiri(y1);
                     chromosome[y2].replace(chromosome[y2].find(mokammely1), mokammely1.size(), mokammely3);
           }
-          string makooascell(string y4)
+          string makooascell(string y4)//make reverse for a string
           {
                     string y5;
                     for (int r = (y4.size() - 1); 0 <= r; r--)
@@ -261,7 +261,7 @@ public:
                     }
                     return y5;
           }
-          void jaheshkoochikcell(char k1, char k2, int p1, int p2)
+          void jaheshkoochikcell(char k1, char k2, int p1, int p2)//small mutation function
           {
                     int pp = p1;
                     string z = chromosome[p2];
@@ -282,7 +282,6 @@ public:
                     {
                               q = 'C';
                     }
-                    ////////////
                     if (k1 == 'A')
                     {
                               p = 'T';
@@ -324,7 +323,7 @@ public:
                     chromosome[p1].replace(0, z.length(), z);
           }
 
-          void JaheshmakoosRNAcell(string y1, int y2)
+          void JaheshmakoosRNAcell(string y1, int y2)//reverse mutation function
           {
                     string rev = y1;
                     string SS = chromosome[y2];
@@ -337,7 +336,7 @@ public:
                     S3.replace(S3.find(y1), rev.size(), rev);
                     chromosome[y2] = mokammelgiri(S3);
           }
-          bool check_palindrome(string str, int start, int end)
+          bool check_palindrome(string str, int start, int end)//check  all palindromestring in all string 
           {
                     bool ans = true;
                     while (start < end)
@@ -350,7 +349,7 @@ public:
                     return ans;
           }
 
-          void palindromeyab()
+          void palindromeyab()//A fuction for finding all palindrome in Cellule
           {
                     for (int k = 0; k < chromosome.size(); k++)
                     {
