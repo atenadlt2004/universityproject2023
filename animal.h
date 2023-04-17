@@ -77,6 +77,6 @@ public:
 
                     std::random_shuffle(indices.begin(), indices.end());
 
-                    std::vector<Chromosome>;
+                    std::vector<Chromosome>
           }
-};
+}
